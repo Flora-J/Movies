@@ -41,13 +41,13 @@ class LoginActivity : AppCompatActivity() {
         Log.i("LoginActivity", "$username" )*/
 
         //Correction
-        var username: String? = "jamesbond"
+        /*var username: String? = "jamesbond"
         Log.i("LoginActivity", "username length=${username?.length}")
         Log.i("LoginActivity", "username uppercase + reversed=${username?.uppercase()?.reversed()}")
 
         val password = "password"
         Log.i("LoginActivity", "password length=${password.length}")
-        Log.i("LoginActivity", "password uppercase + reversed=${password.uppercase().reversed()}")
+        Log.i("LoginActivity", "password uppercase + reversed=${password.uppercase().reversed()}")*/
 
     }
 }

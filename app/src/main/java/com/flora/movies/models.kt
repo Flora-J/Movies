@@ -1,13 +1,15 @@
 package com.flora.movies
 
 enum class Genre {
+    ACTION,
+    COMEDY,
     SF,
-    COMEDY
 }
 
 data class Movie (
     val id: Int,
     val title: String,
     val genre: Genre,
-    val releaseDate: String
+    val releaseDate: String,
+    val posterId: Int,
 )
