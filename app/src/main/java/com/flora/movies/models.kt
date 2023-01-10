@@ -13,3 +13,5 @@ data class Movie (
     val releaseDate: String,
     val posterId: Int,
 )
+
+data class User(val username: String, val email: String)

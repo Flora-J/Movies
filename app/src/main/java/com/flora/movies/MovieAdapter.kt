@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.flora.movies.databinding.ItemMovieBinding
 
-class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieAdapter(var movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     // Fait le lien avec item_movie.xml
     class ViewHolder(val binding: ItemMovieBinding) : RecyclerView.ViewHolder(
@@ -15,7 +15,7 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
     // Est appelé 10/15x au 1er affichage de RecylcerView pour créer les ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ItemMovieBinding.inflate(layoutInflater)
+        val binding = ItemMovieBinding.inflate(layoutInflater, parent, false)
         return ViewHolder(binding)
     }
 
