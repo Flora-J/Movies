@@ -1,13 +1,13 @@
 package com.flora.movies
 
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 // Les différents état de l'écran LoginActivity
 sealed class LoginViewModelState {
-    class Success(val token: String) : LoginViewModelState()
-    class Failure(val errorMessage: String) : LoginViewModelState()
+    data class Success(val token: String) : LoginViewModelState()
+    data class Failure(val errorMessage: String) : LoginViewModelState()
+    data class UpdateLogin(val loginButtonEnabled: Boolean) : LoginViewModelState()
 }
 class LoginViewModel : ViewModel() {
     val stateLiveData = MutableLiveData<LoginViewModelState>()
@@ -21,5 +21,10 @@ class LoginViewModel : ViewModel() {
             // Si KO => produire state Failure avec message d'erreur
             stateLiveData.value = LoginViewModelState.Failure("Login non valide")
         }
+    }
+
+    fun updateLogin(username: String, password: String) {
+        val isEnabled = username.isNotEmpty() && password.isNotEmpty()
+        stateLiveData.value = LoginViewModelState.UpdateLogin(loginButtonEnabled = isEnabled)
     }
 }

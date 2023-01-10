@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Observer
 import com.flora.movies.databinding.ActivityLoginBinding
 
@@ -26,6 +27,20 @@ class LoginActivity : AppCompatActivity() {
             updateUi(state)
         })
 
+        binding.usernameEditTextTextPersonName.doAfterTextChanged {
+            val username = binding.usernameEditTextTextPersonName.text.toString()
+            val password = binding.passwordEditTextTextPassword.text.toString()
+
+            viewModel.updateLogin(username, password)
+        }
+
+        binding.passwordEditTextTextPassword.doAfterTextChanged {
+            val username = binding.usernameEditTextTextPersonName.text.toString()
+            val password = binding.passwordEditTextTextPassword.text.toString()
+
+            viewModel.updateLogin(username, password)
+        }
+
         binding.loginButton.setOnClickListener {
             val username = binding.usernameEditTextTextPersonName.text.toString()
             val password = binding.passwordEditTextTextPassword.text.toString()
@@ -43,6 +58,9 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login OK", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@LoginActivity, MovieListActivity::class.java)
                 startActivity(intent)
+            }
+            is LoginViewModelState.UpdateLogin -> {
+                binding.loginButton.isEnabled = state.loginButtonEnabled
             }
         }
     }
