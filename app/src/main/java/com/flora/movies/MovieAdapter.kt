@@ -24,6 +24,7 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
         holder.binding.posterImageView.setImageResource(movie.posterId)
         holder.binding.titleTextView.text = movie.title
         holder.binding.releaseDateTextView.text = movie.releaseDate
+        holder.binding.genreLabelTextView.text = getGenreLabel(movie.genre)
     }
 
     override fun getItemCount(): Int {
