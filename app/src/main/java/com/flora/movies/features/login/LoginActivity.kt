@@ -1,12 +1,15 @@
-package com.flora.movies
+package com.flora.movies.features.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Observer
+import com.flora.movies.LoginViewModel
+import com.flora.movies.LoginViewModelState
+import com.flora.movies.features.movie.MovieListActivity
 import com.flora.movies.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -62,14 +65,7 @@ class LoginActivity : AppCompatActivity() {
             is LoginViewModelState.UpdateLogin -> {
                 binding.loginButton.isEnabled = state.loginButtonEnabled
             }
+            else -> {}
         }
     }
 }
-
-/*var username: String? = "jamesbond"
-        Log.i("LoginActivity", "username length=${username?.length}")
-        Log.i("LoginActivity", "username uppercase + reversed=${username?.uppercase()?.reversed()}")
-
-        val password = "password"
-        Log.i("LoginActivity", "password length=${password.length}")
-        Log.i("LoginActivity", "password uppercase + reversed=${password.uppercase().reversed()}")*/

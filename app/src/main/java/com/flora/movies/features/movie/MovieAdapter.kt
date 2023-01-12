@@ -1,9 +1,11 @@
-package com.flora.movies
+package com.flora.movies.features.movie
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.flora.movies.Movie
 import com.flora.movies.databinding.ItemMovieBinding
+import com.flora.movies.getGenreLabel
 
 class MovieAdapter(var movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 

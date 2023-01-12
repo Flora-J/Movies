@@ -1,7 +1,10 @@
-package com.flora.movies
+package com.flora.movies.features.movie
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.flora.movies.Genre
+import com.flora.movies.Movie
+import com.flora.movies.R
 
 class MovieListViewModel : ViewModel() {
 
